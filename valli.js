@@ -100,7 +100,7 @@ function shuffleExtra(array) {
     }
   if (num == 1) {
     array[0] = nindex;
-  } 
+  }
   var currentIndex = array.length, temporaryValue, randomIndex;
   if (nume == 24) {
     for (i=0; i < array.length; i++) {
