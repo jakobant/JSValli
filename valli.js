@@ -87,8 +87,8 @@ document.getElementById('randomizeData').addEventListener('click', function() {
 });
 
 function shuffleExtra(array) {
-  var num = Math.floor(Math.random() * 10 + 1);
-  var nume = Math.floor(Math.random() * 25 + 1);
+  var num = Math.floor(Math.random() * 15 + 1);
+  var nume = Math.floor(Math.random() * 50 + 1);
   console.log(num);
   console.log(nume);
   var findex = array[0];
@@ -103,9 +103,7 @@ function shuffleExtra(array) {
   }
   var currentIndex = array.length, temporaryValue, randomIndex;
   if (nume == 24) {
-    for (i=0; i < array.length; i++) {
-      array[i] = findex;
-    }
+    array[0] = findex;
   } else {
     while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
