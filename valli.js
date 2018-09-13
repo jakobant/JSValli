@@ -128,15 +128,21 @@ function shuffle(array) {
   return array;
 }
 
+
 function doStuff() {
 var anames = [];
 var arules = [];
 var aextras = [];
+var length = 0;
 for (i=0; i < plays.length; i++) {
- anames.push(plays[i].name);
- arules.push(plays[i].rules);
  aextras.push(plays[i].extra);
+ arules.push(plays[i].rules);
+ if (plays[i].name!="" && plays[i].name!=null) {
+ anames.push(plays[i].name);
+ length++;
+ }
 }
+
 anames = shuffle(anames);
 arules = shuffle(arules);
 aextras = shuffleExtra(aextras);
@@ -144,7 +150,7 @@ var extras = [];
 var names = [];
 var todo = [];
 console.log(aextras);
-for (i=0; i < plays.length; i++) {
+for (i=0; i < length; i++) {
   if (aextras[i] == "." || aextras[i]==null) {
     extras.push({"title": aextras[i], "value": 100, "color": ccolor[i]});
   } else {
