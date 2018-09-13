@@ -11,7 +11,13 @@ var ccolor = ['rgb(255, 99, 132)',
         'rgb(75, 192, 192)',
         'rgb(54, 162, 235)',
         'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)']
+        'rgb(201, 203, 207)'];
+
+var res = {'low': [30,110,110,190,190,270],
+           'med': [50,150,150,250,250,350],
+           'high': [50,200,200,350,350,500]};
+
+console.log(res.low);
 
 var urlParams = new URLSearchParams(window.location.search);
 
@@ -81,18 +87,22 @@ document.getElementById('randomizeData').addEventListener('click', function() {
 });
 
 function shuffleExtra(array) {
-  var num = Math.floor(Math.random() * 15 + 1);
-  var nume = Math.floor(Math.random() * 50 + 1);
+  var num = Math.floor(Math.random() * 10 + 1);
+  var nume = Math.floor(Math.random() * 25 + 1);
   console.log(num);
   console.log(nume);
   var findex = array[0];
   var nindex = array[1];
   array[0] = "";
-  if (num != 14) {
-    array[1] = "X marks the Spot";
-  }
+  array[1] = "";
+  for (i=0; i < array.length; i++) {
+      array[i] = ".";
+    }
+  if (num == 1) {
+    array[0] = nindex;
+  } 
   var currentIndex = array.length, temporaryValue, randomIndex;
-  if (nume == 49) {
+  if (nume == 24) {
     for (i=0; i < array.length; i++) {
       array[i] = findex;
     }
@@ -137,8 +147,8 @@ var names = [];
 var todo = [];
 console.log(aextras);
 for (i=0; i < plays.length; i++) {
-  if (aextras[i] == "" || aextras[i]==null) {
-    extras.push({"title": aextras[i], "value": 100, "color": "#090E0F"});
+  if (aextras[i] == "." || aextras[i]==null) {
+    extras.push({"title": aextras[i], "value": 100, "color": ccolor[i]});
   } else {
     extras.push({"title": aextras[i], "value": 100, "color": "#ee1000"});
   }
@@ -147,9 +157,18 @@ for (i=0; i < plays.length; i++) {
 }
 
 //Randomize the animation
-var one = Math.floor(Math.random() * 4 + 7);
+var one = Math.floor(Math.random() * 2 + 1);
 var two = Math.floor(Math.random() * 7 + 1);
-var three = Math.floor(Math.random() * 7 + 1);
+var three = Math.floor(Math.random() * 4 + 6);
+if (urlParams.get('res') == '' || urlParams.get(res) == null) {
+  var reschart = res.low;
+}
+if (urlParams.get('res') == '' || urlParams.get(res) == null) {
+  var reschart = res.low;
+}
+if (urlParams.get('res') == 'med') { var reschart = res.med;}
+if (urlParams.get('res') == 'high') { var reschart = res.med;}
+
 AmCharts.makeChart("chart2", {
   "type": "pie",
   "responsive": { "enabled": true },
@@ -164,8 +183,8 @@ AmCharts.makeChart("chart2", {
   "colorField": "color",
   "labelRadius": -50,
   "labelColor": "#fff",
-  "radius": 150,
-  "innerRadius": 50,
+  "radius": reschart[1],
+  "innerRadius": reschart[0],
   "outlineAlpha": 0.5,
   "outlineThickness": 1,
   "labelText": "[[title]]",
@@ -185,8 +204,8 @@ AmCharts.makeChart("chart3", {
   "colorField": "color",
   "labelRadius": -50,
   "labelColor": "#fff",
-  "radius": 250,
-  "innerRadius": 150,
+  "radius": reschart[3],
+  "innerRadius": reschart[2],
   "outlineAlpha": 1,
   "outlineThickness": 1,
   "labelText": "[[title]]",
@@ -208,8 +227,8 @@ AmCharts.makeChart("chart4", {
   "colorField": "color",
   "labelRadius": -50,
   "labelColor": "#fff",
-  "radius": 350,
-  "innerRadius": 250,
+  "radius": reschart[5],
+  "innerRadius": reschart[4],
   "outlineAlpha": 1,
   "outlineThickness": 1,
   "labelText": "[[title]]",
