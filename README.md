@@ -31,3 +31,7 @@ copy the url.  Add the example to the url path.
 ```
 ?csv=https://docs.google.com/spreadsheets/d/e/2PACX-1vQWmwDwuhvyrfvWJHQ7ZweLLewwykQ652aNwWEadZoztIh_vy7i1l-kdCILfq8oAnCLR2GU0Jv6bYe-/pub?output=csv
 ```
+
+### Youtube howto share csv
+[![Google Spreedsheets to csv](http://img.youtube.com/vi/nxWUdLwIaeQ/0.jpg)]
+(https://www.youtube.com/watch?v=nxWUdLwIaeQ "Google Spreedsheet to csv")
