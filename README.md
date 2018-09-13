@@ -33,5 +33,4 @@ copy the url.  Add the example to the url path.
 ```
 
 ### Youtube howto share csv
-[![Google Spreedsheets to csv](http://img.youtube.com/vi/nxWUdLwIaeQ/0.jpg)]
-(https://www.youtube.com/watch?v=nxWUdLwIaeQ "Google Spreedsheet to csv")
+[![Google Spreedsheets to csv](http://img.youtube.com/vi/nxWUdLwIaeQ/0.jpg)](https://www.youtube.com/watch?v=nxWUdLwIaeQ "Google Spreedsheet to csv")
